@@ -1,7 +1,7 @@
 
 class Ship {
     constructor(startingPort) {
-    this.startingPort = startingPort;
+    this.startingPort = 'Liverpool';
     this.passengers = 0;
     }
     boardShip() {
