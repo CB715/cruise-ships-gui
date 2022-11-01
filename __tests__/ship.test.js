@@ -21,6 +21,15 @@ describe('Setting sail method of Ship object', () => {
         expect(ship.currentPort).toBeNull();
     });
 });
+describe('Ship can dock at ports', () => {
+    it('docks at a new port', () => {
+        const port = new Port('New York');
+        const ship = new Ship (port);
+        const dover = new Port('Dover');
+        ship.dock(dover.name);
+        expect(ship.currentPort).toBe('Dover');
+    });
+});
 
 
 
