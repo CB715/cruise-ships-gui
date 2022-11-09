@@ -17,7 +17,7 @@ class Ship {
         this.currentPort = null;
         this.previousPort.removeShip(this);
     };
-
+    
     dock(port) {
         const itinerary = this.itinerary;
         const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
