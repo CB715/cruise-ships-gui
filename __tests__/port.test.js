@@ -10,21 +10,31 @@ describe('Creating a port object', () => {
         expect(port.name).toEqual('Belfast');
     });
 
-    describe('port can have ships', () => {
-        it('can add ships to the port', () => {
-            const port = new Port('Dover');
-            const ship = {};
-            port.addShip(ship);
-            expect(port.ships).toContain(ship)
+    describe('Name of the group', () => {
+        let dover;
+        let ship;
+        let ship2;
+
+        describe('port can have ships', () => {
+            beforeEach(() => {
+                dover = new Port('Dover');
+                ship = {};
+                ship2 = {};
+            });
+
+            it('can add ships to the port', () => {
+                dover.addShip(ship);
+
+                expect(dover.ships).toContain(ship)
+            });
+
+            it('ships can remove ships from the port', () => {
+                dover.addShip(ship);
+                dover.addShip(ship2);
+                dover.removeShip(ship);
+                
+                expect(dover.ships).toEqual([ship2]);
+            });
         });
-        it('ships can remove ships from the port', () => {
-            const port = new Port('Dover');
-            const newShip1 = {};
-            const newShip2 = {};
-            port.addShip(newShip1);
-            port.addShip(newShip2);
-            port.removeShip(newShip1);
-            expect(port.ships).toEqual([newShip2]);
-        });
-    });
+    });    
 });
