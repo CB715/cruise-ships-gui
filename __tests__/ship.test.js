@@ -36,6 +36,7 @@ describe('Ship object instantiation, setting sail and docking', () => {
 
         it('sets sail from the starting port', () => {
             ship.setSail ();
+
             expect(ship.currentPort).toBeNull();
             expect(dover.ships).not.toContain(ship);
         });
@@ -43,12 +44,14 @@ describe('Ship object instantiation, setting sail and docking', () => {
         it('cannot sail further than the last port in the itinerary array', () => {
             ship.setSail();
             ship.dock();
+
             expect(() => ship.setSail()).toThrowError('End of itinerary');
 
         });
         it('docks at a new port', () => {
             ship.setSail();
             ship.dock();
+            
             expect(ship.currentPort).toBe(calais);
             expect(calais.ships).toContain(ship);
         });
