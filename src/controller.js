@@ -1,4 +1,4 @@
-
+(function exportController() {
 function Controller() {
     this.initialiseSea();
   }
@@ -14,3 +14,13 @@ function Controller() {
         backgroundIndex += 1;
       }, 1000);
   };
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Controller;
+} else {
+    window.Controller = Controller;
+}
+
+module.exports = { Controller }
+
+}());

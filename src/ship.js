@@ -1,4 +1,4 @@
-
+(function exportShip() {
 class Ship {
     constructor(itinerary) {
         this.itinerary = itinerary;
@@ -26,4 +26,12 @@ class Ship {
     };
 };
 
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Ship;
+} else {
+    window.Ship = Ship;
+}
+
 module.exports = { Ship };
+
+}());

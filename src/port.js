@@ -1,3 +1,4 @@
+(function exportPort() {
 
 class Port {
     constructor(name) {
@@ -14,4 +15,12 @@ class Port {
     }
 };
 
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Port;
+} else {
+    window.Port = Port;
+}
+
 module.exports = { Port }
+
+}());
